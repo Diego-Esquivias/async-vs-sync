@@ -1,5 +1,5 @@
 const {readFile, readFileSync, read} = require('fs')
-const path = require('path')
+const path = require('path');
 // // Problem 1 ------------------------------------------------------------------------------------------------------------------------
 // console.log('This is synchronous')
 // setTimeout(() => {
@@ -55,6 +55,23 @@ const path = require('path')
 
 console.log('Countdown initiated...')
 
+// Synchronous delay using a blocking for loop (approximately 3 seconds)
+const delayTime = 3000
+const endTime = Date.now() + delayTime
+
+for (let i = 0; Date.now() < endTime; i++) {
+    // Empty for loop to create a blocking delay
+}
+
+let count = 10
+
 const countDown = setInterval(() => {
-    console.log('Repeating message...')
-}, 1000);
+    console.log(count)
+    count--
+    if (count == 0) {
+        clearInterval(countDown)
+        setTimeout(() => {
+            console.log('Liftoff!')
+        }, 0)
+    }
+}, 1000)
